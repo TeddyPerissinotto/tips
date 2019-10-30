@@ -1,0 +1,199 @@
+body{
+    text-align: center;
+}
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parent-box{
+    height: 100%;
+}
+
+/**********************************************N°1 : ANIMATED BACKGROUND***********************************************/
+
+.child-box1{
+    width: 600px;
+    height: 500px;
+    color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+    0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.moving-gradient{
+    background: linear-gradient(150deg, #8125E2, #45FCE4);
+    background-size: 200% 200%;
+    animation: moveGradient 5s ease infinite;
+}
+
+@keyframes moveGradient {
+    0%{background-position: 0 50%;}
+    50%{background-position: 100% 50%;}
+    100%{background-position: 0 50%;}
+}
+
+/**********************************************N°2 : SPEECH BUBBLE*****************************************************/
+
+.child-box2{
+    width: 600px;
+    height: 260px;
+    color: #fff;
+    background-color: #8125E2;
+    border-radius: 4px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+    0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.speech-bubble{
+    position: relative;
+}
+
+.speech-bubble::after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 40px;
+    height: 20px;
+    width: 20px;
+    background: inherit;
+    transform: rotate(45deg);
+    border-radius: 2px;
+}
+
+/**********************************************N°3 : LOADING SPINNER***************************************************/
+
+.loading-spinner{
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-right: 8px solid #8125E2;
+    border-radius: 50%;
+    animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+/******************************************************N°4 : MODAL*****************************************************/
+
+.toggle-modal{
+    width: 250px;
+    text-align: center;
+    color: #fff;
+    padding: 20px 0;
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    background: linear-gradient(-30deg, #4A00E0, #8E2DE2);
+    z-index: 0;
+    cursor: pointer;
+}
+
+#modal{
+    position: fixed;
+    min-height: 70vh;
+    width: 500px;
+    background-color: #fff;
+    color: #333333;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transform: translateY(-250%);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-radius: 4px;
+    z-index: 11;
+    opacity: 0;
+    transition: all .5s ease;
+}
+
+#modal.is-open{
+    transform: translateY(-50%);
+    opacity: 1;
+}
+
+.modal-close{
+    position: absolute;
+    top: 2px;
+    right: 8px;
+    transform: rotate(45deg);
+    font-size: 30px;
+    cursor:pointer;
+}
+
+/****************************************************N°5 : PARALLAX****************************************************/
+
+.section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+
+.first-section{
+    background-image: url("../img/zelda-botw.jpg");
+}
+
+.second-section{
+    background-image: url("../img/zelda-la.jpg");
+}
+
+.third-section{
+    background-image: url("../img/zelda-oot.jpg");
+}
+
+/***************************************************N°6 : FLIP CARD****************************************************/
+
+.card-container{
+    width: 300px;
+    height: 400px;
+    margin: 0 auto;
+    border-radius: 4px;
+    perspective: 900px;
+    background-color: transparent;
+}
+
+.card{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: all .7s;
+    transform-style: preserve-3d;
+}
+
+.card-container:hover .card{
+    transform: rotateY(-180deg);
+}
+
+.front{
+    background: linear-gradient(90deg, #0086FF, #0066FF);
+}
+
+.back{
+    background: linear-gradient(90deg, #FF2A78, #F100AE);
+    transform: rotateY(-180deg);
+}
+
+.front, .back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    backface-visibility: hidden;
+}
